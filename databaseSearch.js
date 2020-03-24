@@ -9,7 +9,7 @@ const HEROES = [
 ];
 //console.log(Object.values(HEROES));
 function findOne(arr, query) {
-    
+    //console.log((Object.keys(query)).every(key=>query[key])); 
  /*  for(let i=0; i<arr.length; i++){
       //console.log(arr[i].id)
       //console.log(Object.values(query))
@@ -17,11 +17,16 @@ function findOne(arr, query) {
           return arr[i];
        } else return null; 
   }  */
-  return (
-      arr.find(hero =>Object.keys(query).every(
-        key=> hero[key] === query[key]))
-        );
+  return  ( arr.find(hero =>Object.keys(query).every(
+        key=> query[key] === hero[key])));  
+   /*  for (let i =0; i<arr.length; i++){
+        if(Object.keys(query).every(key=> i.hasOwnProperty(key) && i[key] === query[key])){
+            return arr[i];
+        }
+        else return null;
+    } */
+
   
 }
-let result = findOne(HEROES, { id: 2 });
+let result = findOne(HEROES, { id: 1 });
 console.log(result)
