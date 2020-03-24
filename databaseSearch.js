@@ -9,13 +9,16 @@ const HEROES = [
 ];
 //console.log(Object.values(HEROES));
 function findOne(arr, query) {
-  for(let i=0; i<arr.length; i++){
+    
+ /*  for(let i=0; i<arr.length; i++){
       //console.log(arr[i].id)
       //console.log(Object.values(query))
       if(arr[i].id === Object.values(query)){
           return arr[i];
        } else return null; 
-  } 
+  }  */
+  return (arr.find(hero =>Object.keys(query).every(key=> hero[key] === query[key])));
   
 }
-findOne(HEROES, { id: 1 });
+let result = findOne(HEROES, { id: 2 });
+console.log(result)
