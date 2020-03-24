@@ -17,7 +17,10 @@ function findOne(arr, query) {
           return arr[i];
        } else return null; 
   }  */
-  return (arr.find(hero =>Object.keys(query).every(key=> hero[key] === query[key])));
+  return (
+      arr.find(hero =>Object.keys(query).every(
+        key=> hero[key] === query[key]))
+        );
   
 }
 let result = findOne(HEROES, { id: 2 });
